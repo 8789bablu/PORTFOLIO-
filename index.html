@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bablu Kumar | Portfolio</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    :root {
+    --bg-dark: #0a192f;
+    --bg-light-dark: #112240;
+    --text-primary: #64ffda; /* Professional Green */
+    --text-slate: #8892b0;
+    --text-white: #e6f1ff;
+    --transition: all 0.4s ease;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-slate);
+    font-family: 'Inter', sans-serif;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, .navbar-brand { color: var(--text-white); }
+.text-primary { color: var(--text-primary) !important; }
+.bg-light-dark { background-color: var(--bg-light-dark); }
+.section-padding { padding: 100px 0; }
+
+/* Section Titles */
+.section-title {
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    margin-bottom: 40px;
+    font-size: 2rem;
+   
+}
+.section-title::after {
+    content: "";
+    display: block;
+    height: 1px;
+    width: 150px;
+    background-color: var(--text-primary);
+    margin-left: 20px;
+    opacity: 0.2;
+}
+
+/* Navbar */
+.navbar {
+    background-color: rgba(10, 25, 47, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 15px 0;
+}
+.navbar-brand span { color: var(--text-primary); }
+.nav-link:hover { color: var(--text-primary) !important; }
+
+/* --- HERO IMAGE STYLES --- */
+.profile-frame {
+    position: relative;
+    display: inline-block;
+}
+
+.hero-img {
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 50%;
+    filter: grayscale(15%);
+    transition: var(--transition);
+    border: 2px solid var(--text-primary);
+    box-shadow: 0 20px 30px -15px rgba(2, 12, 27, 0.7);
+}
+
+/* Simple Hover Effect: Just a slight scale and soft glow */
+.hero-img:hover {
+    transform: scale(1.03); /* Subtle zoom in */
+    border-color: var(--text-primary); /* Border brightens */
+    box-shadow: 0 15px 40px rgba(100, 255, 218, 0.15); /* Soft professional glow */
+}
+
+@media (max-width: 991px) {
+    .hero-img {
+        width: 300px;
+        height: 350px;
+    }
+}
+
+/* Education Card */
+.education-card {
+    background-color: var(--bg-light-dark);
+    border-radius: 12px;
+    transition: var(--transition);
+    border: 1px solid rgba(100, 255, 218, 0.1);
+}
+.education-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--text-primary);
+}
+.badge {
+    background-color: var(--text-primary) !important;
+    color: var(--bg-dark) !important;
+}
+
+/* Skills & Projects */
+.skill-card, .project-card {
+    background-color: var(--bg-light-dark);
+    padding: 30px;
+    border-radius: 12px;
+    transition: var(--transition);
+    height: 100%;
+    border: 1px solid transparent;
+}
+.skill-card:hover, .project-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--text-primary);
+}
+.skill-card i { font-size: 2.5rem; color: var(--text-primary); margin-bottom: 15px; }
+.project-tech { list-style: none; padding: 0; display: flex; flex-wrap: wrap; margin-top: 15px; gap: 12px; font-family: monospace; color: var(--text-primary); }
+.github-link { text-decoration: none; color: var(--text-white); margin-top: 15px; display: inline-block; font-size: 0.9rem;}
+.github-link:hover { color: var(--text-primary); }
+
+/* Buttons */
+.btn-primary {
+    background-color: transparent;
+    border: 1px solid var(--text-primary);
+    color: var(--text-primary);
+    padding: 12px 30px;
+    transition: var(--transition);
+}
+.btn-primary:hover {
+    background-color: rgba(100, 255, 218, 0.1);
+    color: var(--text-primary);
+    transform: translateY(-3px);
+}
+
+.btn-outline-primary {
+    border-color: var(--text-slate);
+    color: var(--text-slate);
+}
+
+/* Social Icons */
+.social-links a {
+    color: var(--text-slate);
+    font-size: 2rem;
+    margin: 0 15px;
+    transition: var(--transition);
+    display: inline-block;
+}
+.social-links a:hover {
+    color: var(--text-primary);
+    transform: translateY(-5px);
+}
+
+footer {
+    font-size: 0.9rem;
+    padding: 40px 0;
+}
+</style>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">BK<span>.</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section d-flex align-items-center">
+        <div class="container">
+            <div class="row align-items-center">
+
+                <div class="col-lg-6 order-2 order-lg-1">
+                    <p class="text-primary mb-2">Hi, my name is</p>
+
+                    <h1 class="display-2 fw-bold text-light">Bablu Kumar<span>.</span></h1>
+
+                    <h2 class="display-5 text-secondary">I build digital solutions with code.</h2>
+
+                    <p class="lead text-secondary mt-4 mb-5 col-md-11">
+                        I am a Computer Science student and an aspiring Software Developer. 
+                        Currently focused on building accessible, user-centered web applications.
+                    </p>
+
+                    <div class="hero-btns">
+                        <a href="#projects" class="btn btn-outline-primary btn-lg me-3">View My Work</a>
+
+                        <a href="https://www.linkedin.com/in/bablu-yadav-442663336?utm_source=share_via&utm_content=profile&utm_medium=member_android" 
+                           target="_blank" class="btn btn-primary btn-lg">LinkedIn Profile</a>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 order-1 order-lg-2 text-center mb-5 mb-lg-0">
+                    <div class="profile-frame">
+                        <img src="profile.jpg" alt="Bablu Kumar" class="img-fluid hero-img">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- About Me -->
+    <section id="about" class="section-padding">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="about-text">
+                        <p>Hello! I'm Bablu, a passionate student currently pursuing my <b>B.Tech in Computer Science & Engineering</b>. I enjoy turning complex problems into simple, beautiful, and intuitive designs.</p>
+
+                        <p>I am currently exploring <b>Full-stack development</b> and keeping myself updated with the latest industry trends through self-learning and academic projects.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="section-padding bg-light-dark">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+
+            <div class="row g-4 mt-2">
+
+                <div class="col-md-4">
+                    <div class="skill-card">
+                        <i class="fas fa-laptop-code"></i>
+                        <h3>Languages</h3>
+                        <p>C, C++, Java, Python</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="skill-card">
+                        <i class="fas fa-layer-group"></i>
+                        <h3>Web Tech</h3>
+                        <p>HTML5, CSS3, JavaScript, Bootstrap</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="skill-card">
+                        <i class="fas fa-tools"></i>
+                        <h3>Tools</h3>
+                        <p>Git, GitHub, VS Code</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="section-padding">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+
+            <div class="row g-4">
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="project-card h-100">
+                        <div class="project-content">
+                            <h5 class="text-primary">Development</h5>
+                            <h3>Personal Portfolio</h3>
+                            <p>A professional, responsive portfolio website to showcase my skills and academic journey.</p>
+
+                            <ul class="project-tech">
+                                <li>HTML</li> <li>CSS</li> <li>Bootstrap</li>
+                            </ul>
+
+                            <a href="https://github.com/ggi20245125-ui" class="github-link">
+                                <i class="fab fa-github"></i> View Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="project-card h-100">
+                        <div class="project-content">
+                            <h5 class="text-primary">Python Tool</h5>
+                            <h3>File Organizer</h3>
+                            <p>A script that automatically categorizes and moves files based on their extensions.</p>
+
+                            <ul class="project-tech">
+                                <li>Python</li> <li>OS Module</li>
+                            </ul>
+
+                            <a href="https://github.com/ggi20245125-ui" class="github-link">
+                                <i class="fab fa-github"></i> View Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="project-card h-100">
+                        <div class="project-content">
+                            <h5 class="text-primary">Java App</h5>
+                            <h3>Task Manager</h3>
+                            <p>A professional To-Do application with local storage to keep track of academic deadlines.</p>
+
+                            <ul class="project-tech">
+                                <li>Java</li> <li>OOPs</li>
+                            </ul>
+
+                            <a href="https://github.com/ggi20245125-ui" class="github-link">
+                                <i class="fab fa-github"></i> View Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education" class="section-padding bg-light-dark">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+
+            <div class="education-card p-4">
+                <div class="row align-items-center">
+
+                    <div class="col-md-8">
+                        <h4 class="mb-1">B.Tech in Computer Science & Engineering</h4>
+                        <p class="text-primary fs-5 mb-1">I.K. Gujral Punjab Technical University, Jalandhar</p>
+
+                        <p class="text-secondary mb-0">
+                            <i class="far fa-calendar-alt"></i> August 2024 — July 2028 (Expected)
+                        </p>
+                    </div>
+
+                    <div class="col-md-4 text-md-end mt-3 mt-md-0">
+                        <span class="badge rounded-pill bg-primary px-3 py-2 fs-6">Currently in 2nd Year</span>
+                    </div>
+
+                </div>
+
+                <hr class="border-secondary opacity-25 my-4">
+
+                <p class="mb-0">
+                    Focusing on core Computer Science subjects including Data Structures, Algorithms, Object-Oriented Programming, and Modern Web Technologies.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section-padding text-center">
+        <div class="container">
+
+            <h2 class="section-title mx-auto">Get In Touch</h2>
+
+            <p class="mb-5 text-secondary col-md-6 mx-auto">
+                I am currently looking for internship opportunities and open-source collaborations. Feel free to reach out!
+            </p>
+
+            <a href="mailto:bablukumar09way@gmail.com" class="btn btn-outline-primary btn-lg mb-4 px-5">
+                Email Me
+            </a>
+
+            <div class="social-links mt-4">
+                <a href="https://github.com/ggi20245125-ui" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+
+                <a href="https://www.linkedin.com/in/bablu-yadav-442663336?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-4 text-center border-top border-secondary mt-5">
+        <p class="text-secondary mb-0">Bablu Kumar | Updated: March 2026</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
+```
